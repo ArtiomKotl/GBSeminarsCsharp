@@ -1,15 +1,21 @@
 ﻿/*
-Написать программу, которая принимает на вход число и проверяет, кратно ли оно одновременно 7 и 23
-14 -> нет
-46 -> нет
-161 -> да
+Написать программу, которая принимает на вход два числа и проверяет, является ли одно из них квадратом другого.
+5, 25 -> Да
+-4, 16 -> Да
+25, 5 -> Да
+8, 9 -> Нет
 */
 
-Console.WriteLine("Программа проверяет кратность введённого числа на 7 и 23 одновременно");
-Console.Write("Введите число: ");
-int number = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Программа проверяет, является ли одно из введённых чисел квадратом другого");
+Console.Write("Введите первое число: ");
+int numberOne = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите второе число: ");
+int numberTwo = Convert.ToInt32(Console.ReadLine());
 
-if ((number % 7 == 0) && (number % 23 == 0))
-    Console.WriteLine("Кратно");
+int squareNumberOne = numberOne * numberOne;
+int squareNumberTwo = numberTwo * numberTwo;
+
+if ((numberOne == squareNumberTwo) || (numberTwo == squareNumberOne))
+    Console.WriteLine("Является");
 else
-    Console.WriteLine("Не кратно");
+    Console.WriteLine("Не является");
