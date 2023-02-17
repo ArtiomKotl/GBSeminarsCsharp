@@ -1,17 +1,37 @@
 ﻿/*
-Напишите программу, которая на вход принимает два числа и проверяет, является ли первое число квадратом второго.
-a = 25, b = 5 -> Да
-a = 2, b = 10 -> Нет
-a = -3, b = 9 -> Нет
+Напишите программу, которая выводит название дня недели по введённому номеру
+3 - Среда
+5 - Пятница
 */
 
-Console.WriteLine("Программа проверяет, является ли первое введённое целое число квадратом второго введённого целого числа");
-Console.Write("Введите первое число (подразумеваемый квадрат) = ");
-int a = Int32.Parse(Console.ReadLine())!;
-Console.Write("Введите второе число = ");
-int b = Int32.Parse(Console.ReadLine())!;
+Console.WriteLine("Программа показывает название дня недели на русском языке по введённому номеру");
+Console.Write("Введите одно целое число от 1 до 7 = ");
+int numDay = Int32.Parse(Console.ReadLine()!);
 
-if (a == b * b)
-    Console.WriteLine("Число " + a + " является квадратом числа " + b);
-else
-    Console.WriteLine("Число " + a + " НЕявляется квадратом числа " + b);
+switch (numDay)
+{
+    case 1: 
+        Console.WriteLine("Понедельник");
+        break;
+    case 2: 
+        Console.WriteLine("Вторник");
+        break;
+    case 3: 
+        Console.WriteLine("Среда");
+        break;
+    case 4: 
+        Console.WriteLine("Четверг");
+        break;
+    case 5: 
+        Console.WriteLine("Пятница");
+        break;
+    case 6: 
+        Console.WriteLine("Суббота");
+        break;
+    case 7: 
+        Console.WriteLine("Воскресенье");
+        break;
+    default:
+        Console.WriteLine("Такого дня не существует.");
+        break;
+}
