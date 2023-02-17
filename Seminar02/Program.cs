@@ -1,18 +1,18 @@
 ﻿/*
-Написать программу, которая выводит случайно число из отрезка [10, 99] и показывает наибольшую цифру этого числа
-78 -> 8
-12 -> 2
-85 -> 8
+Написать программу, которая генерирует случайное
+трёхзначное число
+и удаляет вторую цифру этого числа.
+456 -> 46
+782 -> 72
+918 -> 98
 */
 
-Console.WriteLine("Программа генерирует число от 10 до 99, после чего выводит наибольшее из чисел.");
-int randomNumber = new Random().Next(10, 100);
+Console.WriteLine("Программа генерирует случайное трёхзначное целое положительное число, после чего удаляет из него вторую цифру и выводит полученный результат на экран.");
+int randomNumber = new Random().Next(100, 1000);
+
+int firstDigit = randomNumber / 100 * 10;
+int secondDigit = randomNumber % 10;
+int resultNumber = firstDigit + secondDigit;
+
 Console.WriteLine("Сгенерированное число = " + randomNumber);
-
-int numberTens = randomNumber / 10;
-int numberUnits = randomNumber % 10;
-
-if (numberTens > numberUnits)
-    Console.WriteLine("Наибольшая цифра в числе: " + numberTens);
-else
-    Console.WriteLine("Наибольшая цифра в числе: " + numberUnits);
+Console.WriteLine("Результирующее число = " + resultNumber);
