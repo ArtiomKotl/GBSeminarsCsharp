@@ -1,26 +1,15 @@
 ﻿/*
-Написать программу, которая будет принимать на вход два числа и выводить,
-является ли второе число кратным первому.
-Если число 2 не кратно числу 1, то программа выводит остаток от деления.
-34, 5 -> Не кратно, остаток 4
-16, 4 -> Кратно
+Написать программу, которая принимает на вход число и проверяет, кратно ли оно одновременно 7 и 23
+14 -> нет
+46 -> нет
+161 -> да
 */
 
-Console.WriteLine("Задайте два числа. Программа проверит, является ли второе число кратным для первого числа.");
-Console.Write("Введите первое число = ");
-int numberOne = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите второе число = ");
-int numberTwo = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Программа проверяет кратность введённого числа на 7 и 23 одновременно");
+Console.Write("Введите число: ");
+int number = Convert.ToInt32(Console.ReadLine());
 
-if (numberTwo == 0)
-{
-    Console.WriteLine("Ошибка! Невозможно произвести деления на ноль!");
-    return;
-}
-
-int result = numberOne % numberTwo;
-
-if (result == 0)
+if ((number % 7 == 0) && (number % 23 == 0))
     Console.WriteLine("Кратно");
 else
-    Console.WriteLine("Не кратно. Остаток от деления = " + result);
+    Console.WriteLine("Не кратно");
