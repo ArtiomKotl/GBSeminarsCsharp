@@ -1,37 +1,20 @@
 ﻿/*
-Напишите программу, которая выводит название дня недели по введённому номеру
-3 - Среда
-5 - Пятница
+Напишите программу, которая на вход принимает одно целое число (N),
+а на выходе показывает все целые числа в промежутке от -N до N
+4 -> -4, -3, -2, -1, 0, 1, 2, 3, 4
+-2 -> -2, -1, 0, 1, 2
 */
 
-Console.WriteLine("Программа показывает название дня недели на русском языке по введённому номеру");
-Console.Write("Введите одно целое число от 1 до 7 = ");
-int numDay = Int32.Parse(Console.ReadLine()!);
+Console.WriteLine("Программа выводит все целые числа в промежутке от -N до N, где N - введённое число");
+Console.Write("Введите число N = ");
+int N = Int32.Parse(Console.ReadLine()!);
 
-switch (numDay)
+N = Math.Abs(N);
+
+for (int i = N * (-1); i <= N; i++)
 {
-    case 1: 
-        Console.WriteLine("Понедельник");
-        break;
-    case 2: 
-        Console.WriteLine("Вторник");
-        break;
-    case 3: 
-        Console.WriteLine("Среда");
-        break;
-    case 4: 
-        Console.WriteLine("Четверг");
-        break;
-    case 5: 
-        Console.WriteLine("Пятница");
-        break;
-    case 6: 
-        Console.WriteLine("Суббота");
-        break;
-    case 7: 
-        Console.WriteLine("Воскресенье");
-        break;
-    default:
-        Console.WriteLine("Такого дня не существует.");
-        break;
+    if (i == N)
+        Console.WriteLine(i);
+    else
+        Console.Write(i + ", ");
 }
