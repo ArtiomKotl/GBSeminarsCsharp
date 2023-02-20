@@ -1,25 +1,35 @@
 ﻿/*
-Написать программу, которая принимает на вход координаты двух точек
-и находит расстояние между ними в 2D пространстве
-A(3, 6); B(2, 1) -> 5,09
-A(7, 5); B(1, -1) -> 7,21
+Написать программу, которая принимает на вход число
+и выдаёт таблицу квадратов от 1 до этого числа.
+5 -> 1, 4, 9, 16, 25
+2 -> 1, 4
 */
 
-double Distance(double ax, double ay, double bx, double by)
+void Demonstrate(int num)
 {
-    return Math.Sqrt(Math.Pow((ax - bx), 2) + Math.Pow((ay - by), 2));
+    for (int i = 1; i <= num; i++)
+    {
+        if(i == num)
+            Console.WriteLine(num * num);
+        else
+            Console.Write(i * i + ", ");
+    }
 }
 
-Console.WriteLine("Программа показывает расстояние между двумя точкам на плоскости по введённым координатам.");
-Console.Write("Введите координату X точка A = ");
-double ax = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату Y точка A = ");
-double ay = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату X точка B = ");
-double bx = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите координату Y точка B = ");
-double by = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Программа показывает числа от 1 до N возведённые в квадрат.");
+Console.Write("Введите число N = ");
+int N = Convert.ToInt32(Console.ReadLine());
 
-double res = Distance(ax, ay, bx, by);
+if (N <= 0)
+{
+    Console.WriteLine("Введено число меньше 1. Вывести диапазон невозможно. Программа прервана.");
+    return;
+}
 
-Console.WriteLine($"Расстояние между точками A({ax}, {ay}) и B({bx}, {by}) = {Math.Round(res, 4)}");
+if (N >= Math.Sqrt(2_147_483_647))
+{
+    Console.WriteLine("Введено число больше допустимого ограничения программы (N^2 >= 2 147 483 647)");
+    return;
+}
+
+Demonstrate(N);
