@@ -1,45 +1,40 @@
 ﻿/*
-Напишите программу, которая принимает на вход координаты точки (X и Y),
-при чём X != 0 и Y != 0 и выдаёт номер четверти плоскости, в которой находится точка. 
+Написать программу, которая по заданному номеру четверти плоскости
+показывает возможный диапазон координат в этой четверти.
 */
 
-int CorrectCoordinates(int coordinate)
-{
-    if (coordinate != 0)
+int CoordinatesX(int number){
+    if ((number == 1) || (number == 4))
         return 1;
-    else
+    else if ((number == 2) || (number == 3))
         return -1;
+    return 0;
 }
 
-int WhichQuarterPlane(int x, int y)
-{
-    if ((x > 0) && (y > 0))
+int CoordinatesY(int number){
+    if ((number == 1) || (number == 2))
         return 1;
-    else if ((x < 0) && (y > 0))
-        return 2;
-    else if ((x < 0) && (y < 0))
-        return 3;
-    else if ((x > 0) && (y < 0))
-        return 4;
-    return -1; 
+    else if ((number == 3) || (number == 4))
+        return -1;
+    return 0;
 }
 
-Console.WriteLine("Программа показывает четверть плоскости, которой принадлежит введённая точка.");
-Console.Write("Введите координату X = ");
-int x = Convert.ToInt32(Console.ReadLine());
-int corrX = CorrectCoordinates(x);
-Console.Write("Введите координату Y = ");
-int y = Convert.ToInt32(Console.ReadLine());
-int corrY = CorrectCoordinates(y);
-
-if ((corrX == -1) || (corrY == -1))
-{
-    Console.WriteLine("Введены неверные координаты. Программа прервана.");
+Console.WriteLine("Программа показывает возможный диапазон координат по введённому номеру четверти плоскости.");
+Console.Write("Введите номер четверти плоскости: ");
+int num = Convert.ToInt32(Console.ReadLine());
+if ((num != 1) && (num != 2) && (num != 3) && (num != 4)){
+    Console.WriteLine($"Введённого номера плоскости {num} не существует. Программа прервана");
     return;
 }
 
-int result = WhichQuarterPlane(x, y);
+int x = CoordinatesX(num);
+int y = CoordinatesY(num);
 
-Console.WriteLine($"Точка с координатами ({x}, {y}) принадлежит четверти № {result}");
-//Console.Write("Точка принадлежит координатной плоскости № ");
-//Console.WriteLine(WhichQuarterPlane(x, y));
+if ((x == 1) && (y == 1))
+    Console.WriteLine($"Координаты {num} четверти: X от {x} до плюс бесконечности, Y от {y} до плюс бесконечности");
+else if ((x == -1) && (y == 1))
+    Console.WriteLine($"Координаты {num} четверти: X от {x} до минус бесконечности, Y от {y} до плюс бесконечности");
+else if ((x == -1) && (y == -1))
+    Console.WriteLine($"Координаты {num} четверти: X от {x} до минус бесконечности, Y от {y} до минус бесконечности");
+else if ((x == 1) && (y == -1))
+    Console.WriteLine($"Координаты {num} четверти: X от {x} до плюс бесконечности, Y от {y} до минус бесконечности");
